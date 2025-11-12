@@ -24,7 +24,7 @@ jobs:
 
       - name: Lint with flake8
         run: |
-          poetry run flake8 analyzer tests
+          poetry run flake8 log_analyzer/
 
       - name: Run tests
         run: |
