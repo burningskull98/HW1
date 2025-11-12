@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Log Analysis Report</title>
+    <script src="jquery.tablesorter.min.js"></script>
+    <style>
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Log Analysis Report</h1>
+    <table id="report-table">
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Count</th>
+                <th>Count %</th>
+                <th>Time Sum</th>
+                <th>Time %</th>
+                <th>Time Avg</th>
+                <th>Time Max</th>
+                <th>Time Med</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var tableData = $table_json;
+        var tbody = document.querySelector("#report-table tbody");
+        tableData.forEach(function(row) {
+            var tr = document.createElement("tr");
+            tr.innerHTML = "<td>" + row.url + "</td><td>" + row.count + "</td><td>" + row.count_perc + "</td><td>" + row.time_sum + "</td><td>" + row.time_perc + "</td><td>" + row.time_avg + "</td><td>" + row.time_max + "</td><td>" + row.time_med + "</td>";
+            tbody.appendChild(tr);
+        });
+        $("#report-table").tablesorter();
+    </script>
+</body>
+</html>
